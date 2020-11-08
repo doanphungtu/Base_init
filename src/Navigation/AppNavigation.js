@@ -12,6 +12,7 @@ import Utilities from '../Screen/Utilities';
 import Images from '../Theme/Images';
 import {Image} from 'react-native';
 import Color from '../Theme/Color';
+import TestScreen from '../Screen/TestScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -84,10 +85,11 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="TabNav" headerMode="none">
+    <Stack.Navigator initialRouteName="Test" headerMode="none">
       <Stack.Screen name="SplashScreen" component={SplashScreen} />
       <Stack.Screen name="CheckNotification" component={CheckNotification} />
       <Stack.Screen name="TabNav" component={TabNav} />
+      <Stack.Screen name="Test" component={TestScreen} />
     </Stack.Navigator>
   );
 }
