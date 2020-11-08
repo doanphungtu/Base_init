@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Image, Text, View} from 'react-native';
+import {Button, Image, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 
 // Actions
@@ -18,7 +18,8 @@ const TestScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>Test</Text>
+      <Text>{props.dataTest.data || 'Test'}</Text>
+      <Button title="Click" onPress={()=>props.test("Custom by tudp")}/>
     </View>
   );
 };

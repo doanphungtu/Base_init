@@ -12,7 +12,7 @@ export const INITIAL_STATE = Immutable({
   data: null,
 });
 
-export const request = (state, {data}) => state.merge({data});
+export const request = (state, {text}) => state.merge({data: text});
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.TEST_REQUEST]: request,
