@@ -7,18 +7,13 @@ import Images from '../Theme/Images';
 // Styles
 import styles from './Styles/SplashScreenStyles';
 
-const CheckNotification = (props) => {
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       props.navigation.navigate('ChooseCityScreen');
-  //     }, 3000);
-  //   }, []);
+const Notification = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>CheckNotification</Text>
+      <Text>Notification</Text>
     </View>
   );
 };
 
-export default CheckNotification;
+export default Notification;
