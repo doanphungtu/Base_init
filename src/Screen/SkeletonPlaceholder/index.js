@@ -2,10 +2,7 @@ import React, {useEffect} from 'react';
 import {Button, Image, Text, View} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-// Styles
-import styles from './styles';
-
-const SkeletonPlaceholder = ({navigation}) => {
+const Skeletonplaceholder = ({navigation}) => {
   return (
     <SkeletonPlaceholder speed={1000}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -22,4 +19,4 @@ const SkeletonPlaceholder = ({navigation}) => {
   );
 };
 
-export default SkeletonPlaceholder;
+export default Skeletonplaceholder;
