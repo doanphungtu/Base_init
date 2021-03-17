@@ -1,18 +1,15 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import CheckNotification from '../Screen/CheckNotification';
-import SplashScreen from '../Screen/SplashScreen';
-import Home from '../Screen/Home';
-import Notification from '../Screen/Notification';
-import EarnCoin from '../Screen/EarnCoin';
-import Personal from '../Screen/Personal';
-import Utilities from '../Screen/Utilities';
 
-import Images from '../Theme/Images';
-import {Image} from 'react-native';
 import Color from '../Theme/Color';
-import TestScreen from '../Screen/TestScreen';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+FontAwesome.loadFont();
+
+///////////////Screen/////////////////////
+import Test from '../Screen/Test';
+import Home from '../Screen/Home';
+import Splash from '../Screen/Splash';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,38 +18,49 @@ function TabNav(props) {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        // tabBarVisible: getTabBarVisible(route),
         tabBarIcon: ({focused, color}) => {
           const routeName = route.name;
-          let url;
+          let element;
           let size = 20;
           if (routeName === 'Home') {
-            url = focused ? Images.homeC : Images.home;
-          } else if (routeName === 'Utilities') {
-            url = focused ? Images.ultitiC : Images.ultiti;
-          } else if (routeName === 'EarnCoins') {
-            url = focused ? Images.earncoinC : Images.earncoin;
-            size = 28;
-          } else if (routeName === 'Notification') {
-            url = focused ? Images.notificationC : Images.notification;
-          } else if (routeName === 'Personal') {
-            url = focused ? Images.personalC : Images.personal;
+            element = (
+              <FontAwesome
+                name="home"
+                size={size}
+                color={focused ? Color.main : 'grey'}
+              />
+            );
+          } else if (routeName === 'Home1') {
+            element = (
+              <FontAwesome
+                name="home"
+                size={size}
+                color={focused ? Color.main : 'grey'}
+              />
+            );
+          } else if (routeName === 'Home2') {
+            element = (
+              <FontAwesome
+                name="home"
+                size={size}
+                color={focused ? Color.main : 'grey'}
+              />
+            );
+          } else if (routeName === 'Home3') {
+            element = (
+              <FontAwesome
+                name="home"
+                size={size}
+                color={focused ? Color.main : 'grey'}
+              />
+            );
           }
-          return <Image source={url} style={{width: size, height: size}} />;
+          return element;
         },
       })}
       tabBarOptions={{
         activeTintColor: Color.main,
         inactiveTintColor: 'gray',
-        style: {
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          position: 'absolute',
-          height: 60,
-        },
-        tabStyle: {
-          paddingVertical: 5,
-        },
       }}>
       <Tab.Screen
         name="Home"
@@ -60,24 +68,19 @@ function TabNav(props) {
         navigationOptions={{tabBarLabel: 'Trang chủ'}}
       />
       <Tab.Screen
-        name="Utilities"
-        component={Utilities}
+        name="Home1"
+        component={Home}
         navigationOptions={{tabBarLabel: 'Tiện ích'}}
       />
       <Tab.Screen
-        name="EarnCoins"
-        component={EarnCoin}
+        name="Home2"
+        component={Home}
         navigationOptions={{tabBarLabel: 'Kiếm xu'}}
       />
       <Tab.Screen
-        name="Notification"
-        component={Notification}
+        name="Home3"
+        component={Home}
         navigationOptions={{tabBarLabel: 'Thông báo'}}
-      />
-      <Tab.Screen
-        name="Personal"
-        component={Personal}
-        navigationOptions={{tabBarLabel: 'Cá nhân'}}
       />
     </Tab.Navigator>
   );
@@ -85,11 +88,10 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="Test" headerMode="none">
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="CheckNotification" component={CheckNotification} />
+    <Stack.Navigator initialRouteName="Splash" headerMode="none">
+      <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
-      <Stack.Screen name="Test" component={TestScreen} />
+      <Stack.Screen name="Test" component={Test} />
     </Stack.Navigator>
   );
 }

@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {Image, Text, View} from 'react-native';
-import Images from '../Theme/Images';
+import Images from '../../Theme/Images';
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
-import styles from './Styles/SplashScreenStyles';
+import styles from './styles';
 
-const Home = (props) => {
+const Home = ({navigation}) => {
   //   useEffect(() => {
   //     setTimeout(() => {
   //       props.navigation.navigate('ChooseCityScreen');
