@@ -10,6 +10,8 @@ FontAwesome.loadFont();
 import Test from '../Screen/Test';
 import Home from '../Screen/Home';
 import Splash from '../Screen/Splash';
+import HomeShared from '../Screen/ShareElement/Home';
+import DetailShared from '../Screen/ShareElement/Detail';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -88,10 +90,12 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="Test" headerMode="none">
+    <Stack.Navigator initialRouteName="HomeShared" headerMode="none">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen name="HomeShared" component={HomeShared} />
+      <Stack.Screen name="DetailShared" component={DetailShared} />
     </Stack.Navigator>
   );
 }
