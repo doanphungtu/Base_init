@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Color from '../Theme/Color';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 FontAwesome.loadFont();
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 
 ///////////////Screen/////////////////////
 import Test from '../Screen/Test';
@@ -12,8 +13,7 @@ import Home from '../Screen/Home';
 import Splash from '../Screen/Splash';
 import HomeShared from '../Screen/ShareElement/Home';
 import DetailShared from '../Screen/ShareElement/Detail';
-import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
-import {Animated} from 'react-native';
+import SkeletonPlaceholder from '../Screen/SkeletonPlaceholder';
 
 const Stack = createSharedElementStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -92,10 +92,14 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="HomeShared">
+    <Stack.Navigator initialRouteName="TabNav">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen
+        name="SkeletonPlaceholder"
+        component={SkeletonPlaceholder}
+      />
       <Stack.Screen name="HomeShared" component={HomeShared} />
       <Stack.Screen
         name="DetailShared"
