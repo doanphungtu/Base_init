@@ -15,6 +15,7 @@ import HomeShared from '../Screen/ShareElement/Home';
 import DetailShared from '../Screen/ShareElement/Detail';
 import SkeletonPlaceholder from '../Screen/SkeletonPlaceholder';
 import ScrollAnimation from '../Screen/ScrollAnimation';
+import ScrollParalax from '../Screen/ScrollParalax';
 
 const Stack = createSharedElementStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -93,10 +94,11 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="TabNav">
+    <Stack.Navigator initialRouteName="ScrollParalax">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen name="ScrollParalax" component={ScrollParalax} />
       <Stack.Screen name="ScrollAnimation" component={ScrollAnimation} />
       <Stack.Screen
         name="SkeletonPlaceholder"
