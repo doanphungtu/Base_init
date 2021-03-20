@@ -12,30 +12,11 @@ import Home from '../Screen/Home';
 import Splash from '../Screen/Splash';
 import HomeShared from '../Screen/ShareElement/Home';
 import DetailShared from '../Screen/ShareElement/Detail';
-import {Easing} from 'react-native-reanimated';
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
+import {Animated} from 'react-native';
 
-const Stack = createStackNavigator();
+const Stack = createSharedElementStackNavigator();
 const Tab = createBottomTabNavigator();
-
-const options = () => ({
-  getureEnabled: false,
-  transitionSpec: {
-    open: {
-      animation: 'timing',
-      config: {duration: 400, easing: Easing.inOut(Easing.cubic)},
-    },
-    close: {
-      animation: 'timing',
-      config: {duration: 400, easing: Easing.inOut(Easing.cubic)},
-    },
-  },
-});
-
-const forFade = ({current}) => ({
-  cardStyle: {
-    opacity: current.progress,
-  },
-});
 
 function TabNav(props) {
   return (
@@ -115,15 +96,44 @@ function App() {
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
-      <Stack.Screen
-        name="HomeShared"
-        component={HomeShared}
-        options={[{cardStyleInterpolator: forFade}, options]}
-      />
+      <Stack.Screen name="HomeShared" component={HomeShared} />
       <Stack.Screen
         name="DetailShared"
         component={DetailShared}
-        options={[{cardStyleInterpolator: forFade}, options]}
+        sharedElementsConfig={(route, otherRoute, showing) => {
+          const {item} = route.params;
+          return [
+            {
+              id: `item.${item.id}.image_url`,
+              animation: 'move',
+              resize: 'clip',
+            },
+            {
+              id: `item.${item.id}.title`,
+              animation: 'move',
+              resize: 'clip',
+            },
+            {
+              id: `item.${item.id}.description`,
+              animation: 'fade',
+              resize: 'clip',
+            },
+            {
+              id: `item.${item.id}.iconName`,
+              animation: 'move',
+              resize: 'clip',
+            },
+          ];
+        }}
+        options={{
+          cardStyleInterpolator: ({current: {progress}}) => {
+            return {
+              cardStyle: {
+                opacity: progress,
+              },
+            };
+          },
+        }}
       />
     </Stack.Navigator>
   );
