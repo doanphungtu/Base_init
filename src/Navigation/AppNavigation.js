@@ -12,9 +12,30 @@ import Home from '../Screen/Home';
 import Splash from '../Screen/Splash';
 import HomeShared from '../Screen/ShareElement/Home';
 import DetailShared from '../Screen/ShareElement/Detail';
+import {Easing} from 'react-native-reanimated';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const options = () => ({
+  getureEnabled: false,
+  transitionSpec: {
+    open: {
+      animation: 'timing',
+      config: {duration: 400, easing: Easing.inOut(Easing.cubic)},
+    },
+    close: {
+      animation: 'timing',
+      config: {duration: 400, easing: Easing.inOut(Easing.cubic)},
+    },
+  },
+});
+
+const forFade = ({current}) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
 
 function TabNav(props) {
   return (
@@ -90,12 +111,20 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="HomeShared" headerMode="none">
+    <Stack.Navigator initialRouteName="HomeShared">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
-      <Stack.Screen name="HomeShared" component={HomeShared} />
-      <Stack.Screen name="DetailShared" component={DetailShared} />
+      <Stack.Screen
+        name="HomeShared"
+        component={HomeShared}
+        options={[{cardStyleInterpolator: forFade}, options]}
+      />
+      <Stack.Screen
+        name="DetailShared"
+        component={DetailShared}
+        options={[{cardStyleInterpolator: forFade}, options]}
+      />
     </Stack.Navigator>
   );
 }
