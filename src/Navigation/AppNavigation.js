@@ -93,7 +93,7 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="ScrollAnimation">
+    <Stack.Navigator initialRouteName="TabNav">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
