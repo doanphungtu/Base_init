@@ -14,6 +14,10 @@ const Home = ({navigation}) => {
       onClick: () => navigation.navigate('SkeletonPlaceholder'),
     },
     {name: 'Shared Element', onClick: () => navigation.navigate('HomeShared')},
+    {
+      name: 'ScrollAnimation',
+      onClick: () => navigation.navigate('ScrollAnimation'),
+    },
   ];
   return (
     <View style={styles.container}>
