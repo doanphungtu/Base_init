@@ -16,6 +16,7 @@ import DetailShared from '../Screen/ShareElement/Detail';
 import SkeletonPlaceholder from '../Screen/SkeletonPlaceholder';
 import ScrollAnimation from '../Screen/ScrollAnimation';
 import ScrollParalax from '../Screen/ScrollParalax';
+import ReactnativeReanimated from '../Screen/ReactnativeReanimted';
 
 const Stack = createSharedElementStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -94,10 +95,14 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="ScrollParalax">
+    <Stack.Navigator initialRouteName="ReactnativeReanimated">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen
+        name="ReactnativeReanimated"
+        component={ReactnativeReanimated}
+      />
       <Stack.Screen name="ScrollParalax" component={ScrollParalax} />
       <Stack.Screen name="ScrollAnimation" component={ScrollAnimation} />
       <Stack.Screen
