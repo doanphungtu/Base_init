@@ -95,7 +95,7 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="ReactnativeReanimated">
+    <Stack.Navigator initialRouteName="Test">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
