@@ -10,10 +10,7 @@ import {
 const ModalBox = ({
   children,
   backdropStyle,
-  overlayStyle,
   onBackdropPress,
-  fullScreen,
-  ModalComponent,
   isVisible,
   ...rest
 }) => {

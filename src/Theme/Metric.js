@@ -11,5 +11,8 @@ const Metric = {
     regular: 15,
     large: 20,
   },
+  variable: {
+    activeOpacity: 0.5,
+  },
 };
 export default Metric;

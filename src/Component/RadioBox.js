@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Color from '../Theme/Color';
+
+import {Color} from '../Theme';
 
 const RadioBox = ({
   viewContainer,
@@ -8,20 +9,20 @@ const RadioBox = ({
   select = false,
   sizeContain = 30,
   sizeChild,
-  color_select,
+  activeColor,
 }) => {
   return (
     <View
       style={[
         styles.defaultViewContainer,
         {width: sizeContain, height: sizeContain},
-        select && {borderColor: color_select},
+        select && {borderColor: activeColor},
         viewContainer,
       ]}>
       <View
         style={[
           {width: sizeChild, height: sizeChild, borderRadius: sizeChild},
-          select && {backgroundColor: color_select},
+          select && {backgroundColor: activeColor},
           viewChild,
         ]}
       />

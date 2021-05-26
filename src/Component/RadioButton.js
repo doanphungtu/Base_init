@@ -1,13 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native';
 
 import RadioBox from './RadioBox';
-import ButtonMain from './ButtonMain';
-import Color from '../Theme/Color';
+import {Color} from '../Theme';
 
 const RadioButton = ({
-  viewContainer,
+  viewButtonStyle,
+  buttonStyle,
   viewContainerBox,
   viewChildBox,
   labelStyle,
@@ -15,45 +15,48 @@ const RadioButton = ({
   sizeContain = 30,
   sizeChild = 15,
   onPress,
-  ripple_color = Color.faild,
   label = '',
-  color_select = Color.main,
+  activeColor = Color.main,
   disabled = false,
 }) => {
   return (
-    <ButtonMain
-      viewButton={[styles.defaultViewContainer, viewContainer]}
-      android_ripple={{color: ripple_color}}
-      onPress={onPress}
-      ripple_color={Color.grey}
-      disabled={disabled}>
-      <RadioBox
-        select={select}
-        sizeChild={sizeChild}
-        sizeContain={sizeContain}
-        viewChild={viewChildBox}
-        viewContainer={viewContainerBox}
-        color_select={color_select}
-      />
-      <Text
-        style={[
-          styles.txtLabel,
-          select && {color: color_select},
-          label.length && {marginLeft: 10},
-          labelStyle,
-        ]}>
-        {label}
-      </Text>
-    </ButtonMain>
+    <View style={[styles.defaultViewButtonStyle, viewButtonStyle]}>
+      <TouchableOpacity
+        style={[styles.defaultButtonStyle, buttonStyle]}
+        onPress={onPress}
+        disabled={disabled}>
+        <RadioBox
+          select={select}
+          sizeChild={sizeChild}
+          sizeContain={sizeContain}
+          viewChild={viewChildBox}
+          viewContainer={viewContainerBox}
+          activeColor={activeColor}
+        />
+        <Text
+          style={[
+            styles.defaultLabelStyle,
+            select && {color: activeColor},
+            label.length && {marginLeft: 10},
+            labelStyle,
+          ]}>
+          {label}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  defaultViewContainer: {
+  defaultViewButtonStyle: {
+    backgroundColor: Color.halfGrey,
+  },
+  defaultButtonStyle: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: Color.white,
   },
-  txtLabel: {
+  defaultLabelStyle: {
     fontSize: 15,
     color: Color.grey,
   },

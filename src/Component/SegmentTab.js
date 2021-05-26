@@ -1,8 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, Text, Animated, StyleSheet, FlatList} from 'react-native';
-import Color from '../Theme/Color';
-import Metric from '../Theme/Metric';
-import ButtonMain from './ButtonMain';
+import {
+  View,
+  Text,
+  Animated,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
+
+import {Color, Metric} from '../Theme';
 
 const SegmentTab = ({
   viewContainTab,
@@ -55,14 +61,14 @@ const SegmentTab = ({
           ]}
         />
         {label.map((item, index) => (
-          <ButtonMain
+          <TouchableOpacity
             key={String(index)}
-            viewContainer={[
+            activeOpacity={Metric.variable.activeOpacity}
+            style={[
               styles.defaultContainButton,
               viewContainButton,
               {borderColor: color_select},
             ]}
-            viewButton={{justifyContent: 'center', alignItems: 'center'}}
             onLayout={(event) => {
               if (index != 0) {
                 let newData = [...xTab];
@@ -83,7 +89,7 @@ const SegmentTab = ({
               ]}>
               {item}
             </Text>
-          </ButtonMain>
+          </TouchableOpacity>
         ))}
       </View>
       <FlatList
@@ -130,6 +136,8 @@ const styles = StyleSheet.create({
   },
   defaultContainButton: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   defaultLabelStyle: {
     fontSize: 15,
