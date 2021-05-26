@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {Button, Image, Text, View} from 'react-native';
-import {connect} from 'react-redux';
 
 // Actions
 import TestAction from '../../Redux/TestRedux';

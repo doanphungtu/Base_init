@@ -1,10 +1,9 @@
-import {StatusBar} from 'react-native';
 import Color from './Color';
 
-const AppStyles = {
+const AppStyle = {
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
 };
-export default AppStyles;
+export default AppStyle;

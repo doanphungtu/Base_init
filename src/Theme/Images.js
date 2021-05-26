@@ -1,4 +1,4 @@
 const Images = {
-  splashScreen: require('./img/spalshscreen.png'),
+  splashScreen: require('../Assets/img/spalshscreen.png'),
 };
 export default Images;
