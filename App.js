@@ -5,6 +5,7 @@ import AppNavigation from './src/Navigation/AppNavigation';
 import {Provider} from 'react-redux';
 import store from './src/Redux/index';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import './src/Translation';
 
 export default class App extends React.Component {
   render() {
