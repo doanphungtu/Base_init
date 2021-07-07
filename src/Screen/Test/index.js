@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {Button, Image, Text, View} from 'react-native';
+import DropdownModal from '../../Component/DropdownModal';
 
 // Actions
 import TestAction from '../../Redux/TestRedux';
@@ -9,8 +10,11 @@ import styles from './styles';
 const Test = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>{'Test'}</Text>
-      <Button title="Click" />
+      <DropdownModal
+        options={['a', 'b']}
+        buttonStyle={{width: 100}}
+        dropdownStyle={{width: 100}}
+      />
     </View>
   );
 };

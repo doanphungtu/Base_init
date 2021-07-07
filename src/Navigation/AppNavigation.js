@@ -88,7 +88,7 @@ function TabNav(props) {
 
 function App() {
   return (
-    <Stack.Navigator initialRouteName="Splash" headerMode="none">
+    <Stack.Navigator initialRouteName="Test" headerMode="none">
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="TabNav" component={TabNav} />
       <Stack.Screen name="Test" component={Test} />
